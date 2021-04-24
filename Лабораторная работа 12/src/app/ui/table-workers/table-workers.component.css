@@ -1,0 +1,8 @@
+.buttons {
+    display: flex;
+    flex-flow: row;
+}
+
+.btn {
+    margin-right: 5px;
+}

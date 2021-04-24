@@ -1,0 +1,19 @@
+.field {
+    width: 250px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.btn {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.row{
+    margin-left: 0px;
+}
+
+.table{
+    display: flex;
+    flex-flow: row;
+}

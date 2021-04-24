@@ -1,0 +1,20 @@
+<div class="title">
+  <h5>Добавить сотрудника</h5>
+</div>
+<div class="table">
+  <div class="field">
+    <input type="text" class="form-control" placeholder="Имя" [(ngModel)]="worker.name" />
+  </div>
+  <div class="field">
+    <input type="text" class="form-control" placeholder="Фамилия" [(ngModel)]="worker.surname" />
+  </div>
+  <div class="field">
+    <select class="custom-select" [(ngModel)]="worker.type">
+      <option [ngValue]="myWorkerType.programmer">Программист</option>
+      <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+      <option [ngValue]="myWorkerType.copywriter">Рекламщик</option>
+      <option [ngValue]="myWorkerType.manager">Менеджер</option>
+    </select>
+  </div>
+</div>
+<button class="btn btn-outline-primary btn-sm" (click)="onAddWorker()">Добавить</button>
