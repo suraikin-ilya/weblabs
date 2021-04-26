@@ -1,0 +1,25 @@
+.field {
+  width: 235px;
+  text-align: center;
+  margin-right: 11px;
+}
+
+.row{
+  margin-left: 0px;
+}
+
+.form {
+  width: 100%;
+}
+
+.btn {
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+.fields{
+  display: flex;
+  flex-flow: row;
+}

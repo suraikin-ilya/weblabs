@@ -1,0 +1,41 @@
+<div class="main" *ngIf="workers.length > 0">
+  <div class="header">
+    <h5>{{title}}</h5>
+  </div>
+  <div class="title" id="id">ID</div>
+  <div class="title" id="name">Name</div>
+  <div class="title" id="sur">Surname</div>
+  <div class="title" id="num">Number</div>
+  <div class="title" id="job">Job</div>
+  <div class="table" *ngFor="let worker of workers">
+    <form [formGroup]="worker.workerForm">
+      <div class="local">
+        <div class="field">{{worker.id}}</div>
+        <div class="field">
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="field">
+          <input type="text" class="form-control" formControlName="surname">
+        </div>
+        <div class="field">
+          <input type="text" class="form-control" formControlName="phone" [textMask]="{mask: mask, showMask: true}">
+        </div>
+        <div class="field">
+          <select class="custom-select" formControlName="type">
+            <option [ngValue]="myWorkerType.programmer">Programmer</option>
+            <option [ngValue]="myWorkerType.designer">Designer</option>
+            <option [ngValue]="myWorkerType.copywriter">Copywriter</option>
+            <option [ngValue]="myWorkerType.manager">Manager</option>
+          </select>
+        </div>
+        <div class="field">
+          <button class="btn btn-warning" (click)="onRedactWorker(this.worker)">Edit</button>
+          <button class="btn btn-success" (click)="onSaveWorker(this.worker)"
+            [disabled]="worker.workerForm.disabled || worker.workerForm.invalid">Save</button>
+          <button (click)="onDeleteWorker(worker.id)" class="btn btn-outline-danger btn-sm">Delete</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+  </div>
+</div>

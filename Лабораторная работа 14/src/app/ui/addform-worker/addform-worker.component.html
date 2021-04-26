@@ -1,0 +1,25 @@
+<div class="title">
+  <h5>Add worker to database</h5>
+</div>
+<form [formGroup]="workerForm" class="form">
+  <div class="fields">
+    <div class="field">
+      <input type="text" class="form-control" formControlName="name" placeholder="Name">
+    </div>
+    <div class="field">
+      <input type="text" class="form-control" formControlName="surname" placeholder="Surname">
+    </div>
+    <div class="field">
+      <input type="text" class="form-control" formControlName="phone" [textMask]="{mask: mask, showMask: true}">
+    </div>
+    <div class="field">
+      <select class="custom-select" formControlName="type">
+        <option [ngValue]="myWorkerType.programmer">Programmer</option>
+        <option [ngValue]="myWorkerType.designer">Designer</option>
+        <option [ngValue]="myWorkerType.copywriter">Copywriter</option>
+        <option [ngValue]="myWorkerType.manager">Manager</option>
+      </select>
+    </div>
+  </div>
+</form>
+<button class="btn btn-outline-primary btn-sm" (click)="onAddWorker()" [disabled]="workerForm.invalid">Add worker</button>
