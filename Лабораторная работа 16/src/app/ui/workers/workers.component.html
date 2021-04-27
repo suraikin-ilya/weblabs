@@ -1,0 +1,19 @@
+<div class="container" *ngIf="isLoaded">
+    <div class="title">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="container" *ngIf="isLoaded">
+        <app-workeradd (addWorker)="onAddWorker($event)"></app-workeradd>
+        <div class="filter">
+            <input type="text" class="form-control" placeholder="Name and surname filter" [(ngModel)]="filter">
+        </div>
+
+        <button class="btn" (click)="sortID()">Sort by ID</button>
+        <button class="btn" (click)="sortAge()">Sort by Age</button>
+
+        <app-workerlist [workers]="getByID() | pipe:filter" (delete)="onDeleteWorker($event)" (save)="onSaveWorker($event)" id="app-NR"></app-workerlist>
+
+
+
+    </div>
+</div>

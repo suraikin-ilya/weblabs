@@ -1,0 +1,41 @@
+<div class="cont">
+    <div class="title">
+        ADD WORKER
+    </div>
+    <form [formGroup]="form" class="form">
+        <div class="fields">
+            <div class="field">
+                <input type="text" class="form-control" formControlName="name" placeholder="Name">
+            </div>
+            <div class="field">
+                <input type="text" class="form-control" formControlName="surname" placeholder="Surname">
+            </div>
+            <div class="field">
+                <input type="text" class="form-control" formControlName="middlename" placeholder="Middle Name">
+            </div>
+            <div class="field">
+                <input type="text" class="form-control" formControlName="email" placeholder="E-Mail"
+                    [textMask]="{mask: emailMask}">
+            </div>
+        </div>
+        <div class="selectors">
+            <div class="field">
+                <input type="text" class="form-control" formControlName="phone"
+                    [textMask]="{mask: mask, showMask: true}">
+            </div>
+            <div class="field">
+                <input type="text" class="form-control" formControlName="birth"
+                    [textMask]="{mask: birthmask, showMask: true}">
+            </div>
+            <div class="field">
+                <select class="custom-select" formControlName="type">
+                    <option [ngValue]="myType.IT_Department">IT Department</option>
+                    <option [ngValue]="myType.Sales_Department">Sales Department</option>
+                    <option [ngValue]="myType.Delivery_Department">Delivery Department</option>
+                    <option [ngValue]="myType.Law_Department">Law Department</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <button class="btn btn-outline-primary btn-sm" (click)="onAddWorker()" [disabled]="form.invalid">Add worker</button>
+</div>

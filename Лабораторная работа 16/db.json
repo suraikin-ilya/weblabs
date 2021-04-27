@@ -1,0 +1,15 @@
+{
+  "workers": [
+    {
+      "id": 1,
+      "name": "Иван",
+      "surname": "Иванов",
+      "middlename": "Иваныч",
+      "phone": "85555555555",
+      "email": "dasdadsadasd@daa.da",
+      "birth": "11/12/2000",
+      "age": 19,
+      "type": 3
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<div class="main" *ngIf="workers.length > 0">
+  <div class="title">
+    <h5>{{title}}</h5>
+  </div>
+  <div class="table" *ngFor="let worker of workers">
+    <form [formGroup]="worker.form">
+      <div class="local">
+        <div class="field">
+          <label for="id" class="label">ID</label>
+          <div class="form-control" id="id">{{worker.id}}</div>
+        </div>
+        <div class="field">
+          <label for="name">Name</label> <input type="text" class="form-control" formControlName="name"
+            placeholder="Name" id="name">
+        </div>
+        <div class="field">
+          <label for="surname">Surname</label> <input type="text" class="form-control" formControlName="surname"
+            placeholder="Surname" id="surname">
+        </div>
+        <div class="field">
+          <label for="mid">Middle Name</label> <input type="text" class="form-control" formControlName="middlename"
+            placeholder="Middle Name" id="mid">
+        </div>
+        <div class="field">
+          <label for="email">E-Mail</label> <input type="text" class="form-control" formControlName="email"
+            placeholder="E-Mail" id="email" [textMask]="{mask: emailMask}">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label> <input type="text" class="form-control" formControlName="phone"
+            [textMask]="{mask: mask, showMask: true}" id="phone">
+        </div>
+        <div class="field">
+          <label for="birth">Birth Date</label> <input type="text" class="form-control" formControlName="birth"
+            [textMask]="{mask: birthmask, showMask: true}" id="birth">
+        </div>
+        <div class="field">
+          <label for="birth">Age</label> <input type="text" class="form-control" formControlName="age" id="age">
+        </div>
+        <div class="field">
+          <label for="job">Vacancy</label>
+          <select class="custom-select" formControlName="type" id="job">
+            <option [ngValue]="myType.IT_Department">IT Department</option>
+            <option [ngValue]="myType.Sales_Department">Sales Department</option>
+            <option [ngValue]="myType.Delivery_Department">Delivery Department</option>
+            <option [ngValue]="myType.Law_Department">Law Department</option>
+          </select>
+        </div>
+        <div class="field">
+          <button class="btn btn-warning" (click)="onRedactWorker(this.worker)">Edit</button>
+          <button class="btn btn btn-success" (click)="onSaveWorker(this.worker)"
+            [disabled]="worker.form.disabled || worker.form.invalid">Save</button>
+          <button (click)="onDeleteWorker(worker.id)" class="btn btn-outline-danger btn-sm">Delete</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
